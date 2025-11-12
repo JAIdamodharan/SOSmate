@@ -1,4 +1,4 @@
-# 🚨 SOSmate – Women Safety Android App
+# SOSmate – Women Safety Android App
 
 **SOSmate** is a real-time women safety application designed to provide quick emergency assistance during unsafe situations. The app allows users to send instant SOS alerts to their emergency contacts with live GPS location, and also provides a one-tap emergency call feature for immediate help.
 
@@ -18,7 +18,7 @@
 
 - **Language:** Java  
 - **Framework:** Android SDK  
-- **Database:** Firebase Realtime Database  
+- **Database:**  SQLite Database  
 - **APIs:** Google Maps & Location Services  
 
 ---
