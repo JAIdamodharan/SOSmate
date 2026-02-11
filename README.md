@@ -1,132 +1,177 @@
-# SOSMate - Personal Safety Application
+# SOSMate – Personal Safety Android Application
 
-SOSMate is an Android-based smart safety application designed to provide immediate emergency assistance and real-time protection. The application focuses on personal security, particularly for women and vulnerable individuals, by enabling rapid distress signaling and location sharing.
+SOSMate is an Android-based personal safety application developed to provide rapid emergency assistance and real-time protection. The system is designed to enhance personal security, particularly for women and vulnerable individuals, by enabling instant distress alerts, live location tracking, and discreet emergency features.
 
-## Features
+The application combines user-triggered emergency tools with continuous background monitoring to ensure help can be reached quickly during critical situations.
 
-* 
-**One-Touch SOS Activation**: Trigger emergency alerts instantly via a dedicated SOS button on the main dashboard.
+---
 
+## Project Objective
 
-* 
-**Power Button Trigger**: Discreetly initiate emergency alerts by pressing the power button three consecutive times.
+The goal of SOSMate is to create a dependable mobile safety companion that:
 
+- Reduces emergency response time  
+- Shares accurate real-time location during distress  
+- Provides discreet escape options in unsafe environments  
+- Operates reliably even when the app is not actively open  
 
-* 
-**Automatic Emergency SMS**: Automatically sends an SMS containing a Google Maps location link to all pre-registered emergency contacts when SOS is triggered.
+---
 
+## Key Features
 
-* 
-**Real-Time Location Tracking**: Continuously monitors and updates the user's live location using Google Play Services.
+### One-Touch SOS Activation
+A dedicated SOS button on the main dashboard allows users to instantly trigger emergency alerts.
 
+### Power Button Emergency Trigger
+Users can discreetly activate the SOS alert by pressing the device power button three consecutive times, even when the device is locked.
 
-* 
-**Fake Call Simulation**: Allows users to simulate an incoming call to discreetly exit potentially unsafe situations.
+### Automatic Emergency SMS
+When SOS is activated, the app automatically sends an SMS to all registered emergency contacts containing:
+- A distress alert message  
+- A Google Maps link showing the user’s live location  
 
+### Real-Time Location Tracking
+Uses Google Play Services Location API to continuously monitor and update GPS location during emergency mode.
 
-* 
-**Background Services**: Includes features like auto-start on device reboot to ensure uninterrupted safety monitoring.
+### Fake Call Simulation
+Allows users to simulate an incoming phone call, helping them safely exit uncomfortable or potentially threatening situations.
 
+### Background Safety Services
+Persistent background services ensure uninterrupted protection:
+- Auto-start on device reboot  
+- Continuous tracking during SOS mode  
+- Monitoring for hardware-triggered alerts  
 
-* 
-**Location History**: Maintains a log of previously recorded locations with timestamps for reference.
+### Location History
+Maintains a timestamped record of previously captured locations, allowing users to review movement history if required.
 
+### Emergency Contact Management
+Users can add, edit, and remove emergency contacts. At least one contact must be registered to enable SOS functionality.
 
-* 
-**Emergency Contact Management**: Allows users to add, edit, and delete emergency contacts through a dedicated interface.
-
-
+---
 
 ## Technical Stack
 
-* 
-**Operating System**: Android 8.0 (Oreo) and above.
+| Component | Technology |
+|----------|------------|
+| Operating System | Android 8.0 (Oreo) and above |
+| Programming Language | Java |
+| UI Design | XML Layouts |
+| IDE | Android Studio |
+| Build System | Gradle |
+| Database | SQLite |
+| APIs | Google Play Services Location API, Google Maps API |
+| Libraries | AndroidX, Material Design Components |
 
+---
 
-* 
-**Language**: Java for core logic and XML for front-end layout design.
+## System Architecture
 
+SOSMate follows a modular, layered architecture:
 
-* 
-**Development Environment**: Android Studio with Gradle Build System.
+### 1. UI Layer
+Responsible for user interaction and screen navigation.
+- `MainActivity` – Dashboard and SOS controls  
+- `LoginActivity` – User authentication  
+- `SafetyFragment` – Safety features interface  
 
+### 2. Services Layer
+Handles all background and emergency-related operations.
+- `EmergencyService` – Manages SOS alerts and SMS dispatch  
+- `LocationTrackingService` – Continuously retrieves GPS coordinates  
+- `PowerButtonService` – Detects hardware button triggers  
 
-* 
-**Database**: SQLite for local storage of user credentials, emergency contacts, and location records.
+### 3. Data Layer
+Handles persistent local data storage using SQLite.
+- User credentials  
+- Emergency contact list  
+- Location history logs  
 
-
-* 
-**APIs**: Google Play Services (Location API) and Google Maps API.
-
-
-* 
-**Libraries**: AndroidX and Material Design Libraries for UI/UX consistency.
-
-
-
-## Architecture
-
-The application follows a modular architecture that separates the user interface, background services, and data management.
-
-* 
-**UI Layer**: Manages user interactions through activities and fragments like `MainActivity`, `LoginActivity`, and `SafetyFragment`.
-
-
-* 
-**Services Layer**: Handles background tasks including `EmergencyService` for alerts, `LocationTrackingService` for GPS updates, and `PowerButtonService` for hardware triggers.
-
-
-* 
-**Data Layer**: Manages persistent storage using an SQLite database with tables for users, contacts, and location history.
-
-
+---
 
 ## Installation and Setup
 
-1. **Clone the Repository**:
+### 1. Clone the Repository
 ```bash
 git clone https://github.com/JAIdamodharan/SOSmate.git
-
 ```
 
+### 2. Open in Android Studio
+Import the project and allow Gradle to sync all dependencies.
 
-2. 
-**Open in Android Studio**: Import the project and allow Gradle to sync dependencies.
+### 3. Grant Required Permissions
+The application requires the following permissions:
 
+- Location (Foreground and Background)  
+- SMS  
+- Phone Call  
+- Boot Completed  
+- Internet  
 
-3. 
-**Permissions**: Ensure the application is granted permissions for Location, SMS, and Phone calls to function correctly.
+### 4. Initial Configuration
+- Register a user account  
+- Add at least one emergency contact  
+- Enable all required permissions in device settings  
 
+---
 
-4. 
-**Configuration**: Register an account and add at least one emergency contact to enable SOS features.
+## Usage Workflow
 
+1. User logs into the application  
+2. Emergency contacts are added and verified  
+3. During an emergency:
+   - Tap the SOS button **or**
+   - Press the power button three times  
+4. Emergency SMS with live location is sent to all contacts  
+5. Real-time location tracking continues until SOS mode is disabled  
 
+---
 
-## Team Members
+## Performance Considerations
 
-* Jaishree Damodharan (22MIS0115) 
+- Optimized for low battery consumption during background tracking  
+- Uses efficient GPS polling intervals to balance accuracy and power usage  
+- Lightweight SQLite database ensures fast local data access  
 
+---
 
-* Pavithraa T (22MIS0504) 
+## Security and Privacy
 
+- All user data is stored locally using SQLite  
+- Location is accessed only during safety-related operations  
+- No external servers store personal data in the current version  
+- Emergency SMS is sent only to user-approved contacts  
 
-* G. Pavithra (22MIS0366) 
+---
 
+## Limitations
 
+- Requires network connectivity for accurate Google Maps location links  
+- SMS functionality depends on SIM availability and carrier support  
+- Background services may be restricted on heavily battery-optimized devices  
+
+---
 
 ## Future Scope
 
-* Integration with wearable IoT devices for hands-free SOS triggering.
+- Wearable IoT integration for hands-free SOS activation  
+- Cloud-based real-time tracking and emergency monitoring  
+- AI-driven predictive safety alerts based on movement patterns  
+- Multilingual interface support  
+- Direct integration with law enforcement and emergency response APIs  
 
+---
 
-* Cloud-based data synchronization for real-time tracking and analytics.
+## Development Team
 
+| Name | Reg. No | VIT Mail-ID |
+|------|---------|-------------|
+| Jaishree Damodharan | 22MIS0115 | jaishree.damodharan2022@vitstudent.ac.in |
+| Pavithraa T | 22MIS0504 | pavithraa.t2022@vitstudent.ac.in |
+| G. Pavithra | 22MIS0366 | pavithra.g2022b@vitstudent.ac.in |
 
-* AI-driven predictive alerts based on movement pattern analysis.
+---
 
+## License
 
-* Multilingual interface support for improved accessibility.
-
-
-* Integration with Law Enforcement APIs for direct police notification.
+This project was developed for academic and research purposes. Future enhancements, deployment, and distribution may follow institutional or project-specific guidelines.
