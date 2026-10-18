@@ -50,6 +50,23 @@ Users can add, edit, and remove emergency contacts. At least one contact must be
 
 ---
 
+## Screenshots
+
+<p align="center">
+  <img src="docs/images/home-screen.png" alt="SOSMate home screen" width="300">
+</p>
+
+The home dashboard shows system status (location, contacts, last check-in), the one-touch **Emergency SOS** button, **Panic Alert**, **Fake Call** and quick actions, with bottom navigation to Location, Contacts, Safety and Settings.
+
+<details>
+<summary>Development view (Android Studio and emulator)</summary>
+
+![Android Studio and emulator](docs/images/android-studio-emulator.png)
+
+</details>
+
+---
+
 ## Technical Stack
 
 | Component | Technology |
